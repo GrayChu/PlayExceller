@@ -75,7 +75,6 @@
       </div>
     </form>
   </div>
-  <button onclick="window.location.href='{{url('/export1')}}'">按我</button>
 </div>
 @endsection
 
