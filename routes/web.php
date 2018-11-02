@@ -17,3 +17,8 @@ Route::get('/', function () {
 
 Route::get('/excel','ExcelController@getViewPage');
 Route::post('/upload','ExcelController@upload');
+
+Route::get('/downloadpage','ExcelController@getDownloadPage');
+Route::get('export1','ExcelController@export1');
+Route::get('export2','ExcelController@export2');
+Route::get('export3','ExcelController@export3');
