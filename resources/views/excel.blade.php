@@ -13,25 +13,25 @@
       <div class="form-row">
         <div class="col-md-4 mb-3">
           <label>下限:</label>
-          <input type="text" name="rlower">
+          <input type="text" name="rlower" value="5">
         </div>
         <div class="col-md-4 mb-3">
           <label>上限:</label>
-          <input type="text" name="rupper">
+          <input type="text" name="rupper" value="5">
         </div>
         <div class="col-md-4 mb-3">
           <label>R標準值:</label>
-          <input type="text" name="rstandard">
+          <input type="text" name="rstandard" >
         </div>
       </div>
       <div class="form-row">
         <div class="col-md-4 mb-3">
           <label>下限:</label>
-          <input type="text" name="glower">
+          <input type="text" name="glower" value="5">
         </div>
         <div class="col-md-4 mb-3">
           <label>上限:</label>
-          <input type="text" name="gupper">
+          <input type="text" name="gupper" value="5">
         </div>
         <div class="col-md-4 mb-3">
           <label>G標準值:</label>
@@ -41,11 +41,11 @@
       <div class="form-row">
         <div class="col-md-4 mb-3">
           <label>下限:</label>
-          <input type="text" name="blower">
+          <input type="text" name="blower" value="5">
         </div>
         <div class="col-md-4 mb-3">
           <label>上限:</label>
-          <input type="text" name="bupper">
+          <input type="text" name="bupper" value="5">
         </div>
         <div class="col-md-4 mb-3">
           <label>B標準值:</label>
@@ -55,11 +55,11 @@
       <div class="form-row">
         <div class="col-md-6 mb-3">
           <label>chip pitch:</label>
-          <input type="text" name="chip">
+          <input type="text" name="chip" value="0.2">
         </div>
         <div class="col-md-6 mb-3">
           <label>pixel pitch:</label>
-          <input type="text" name="pixel">
+          <input type="text" name="pixel" value="0.75">
         </div>
       </div>
       <div class="form-row">
