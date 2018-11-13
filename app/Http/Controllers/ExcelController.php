@@ -39,9 +39,9 @@ class ExcelController extends Controller
         $result1=array();
         $result2=array();
         $rmvarr=array();//red measure value
-    $gmvarr=array();//green measure value
-    $bmvarr=array();//blue measure value
-    $chip=$request->input('chip');
+        $gmvarr=array();//green measure value
+        $bmvarr=array();//blue measure value
+        $chip=$request->input('chip');
         $pixel=$request->input('pixel');
         foreach ($odata as $v) {
             if ($v['color']=="R") {
@@ -262,22 +262,19 @@ class ExcelController extends Controller
 
                 for ($i=1;$i<=14;$i++) {
                     if ($i==6||$i==7||$i==8) {
-                        $sheet->setHeight($i, 82);
+                        $sheet->setHeight($i, 85);
                     } else {
                         $sheet->setHeight($i, 45);
                     }
                 }
 
-                for ($i=3;$i<=250;$i++) {
-                    if($this->getNameFromNumber($i)=='B'||$this->getNameFromNumber($i)=='AY'||$this->getNameFromNumber($i)=='CV'
-                    ||$this->getNameFromNumber($i)=='ES'||$this->getNameFromNumber($i)=='GP')
-                    {
-                      continue;
+                for ($i=3;$i<=246;$i++) {
+                    if ($this->getNameFromNumber($i)=='B'||$this->getNameFromNumber($i)=='AY'||$this->getNameFromNumber($i)=='CV'
+                    ||$this->getNameFromNumber($i)=='ES'||$this->getNameFromNumber($i)=='GP') {
+                        $sheet->setWidth($this->getNameFromNumber($i), 7);
+                    } else {
+                        $sheet->setWidth($this->getNameFromNumber($i), 3);
                     }
-                    else {
-                      $sheet->setWidth($this->getNameFromNumber($i), 4);
-                    }
-
                 }
                 for ($i=0;$i<27;$i++) {
                     $sheet->getCell('A'.($i+2+15))->setValue($i+1);
@@ -410,7 +407,7 @@ class ExcelController extends Controller
                     $cells->setFont(
              array(
                'family'     => 'Calibri',
-               'size'       => '72',
+               'size'       => '68',
              )
            );
                     $cells->setAlignment('center');
@@ -420,6 +417,66 @@ class ExcelController extends Controller
                 //printdate input
                 $sheet->mergeCells('X3:BO5');
                 $sheet->setBorder('X3', 'thin');
+                //R
+                $sheet->mergeCells('D8:G8');
+                $sheet->getCell('D8')->setValue('R');
+                $sheet->cells('D8:G8', function ($cells) {
+                    $cells->setFont(
+             array(
+               'family'     => 'Calibri',
+               'size'       => '72',
+             )
+           );
+                    $cells->setAlignment('center');
+                    $cells->setValignment('center');
+                });
+                $sheet->setBorder('D8', 'thin');
+                //R color
+                $sheet->mergeCells('D9:G11');
+                $sheet->cells('D9:G11', function ($cells) {
+                    $cells->setBackground("#888888");
+                });
+                $sheet->setBorder('D9', 'thin');
+                //G
+                $sheet->mergeCells('H8:K8');
+                $sheet->getCell('H8')->setValue('G');
+                $sheet->cells('H8:K8', function ($cells) {
+                    $cells->setFont(
+             array(
+               'family'     => 'Calibri',
+               'size'       => '72',
+             )
+           );
+                    $cells->setAlignment('center');
+                    $cells->setValignment('center');
+                });
+                $sheet->setBorder('H8', 'thin');
+                //G Color
+                $sheet->mergeCells('H9:K11');
+                $sheet->cells('H9:K11', function ($cells) {
+                    $cells->setBackground("#666666");
+                });
+                $sheet->setBorder('H9', 'thin');
+                //B
+                $sheet->mergeCells('L8:O8');
+                $sheet->getCell('L8')->setValue('B');
+                $sheet->cells('L8:O8', function ($cells) {
+                    $cells->setFont(
+             array(
+               'family'     => 'Calibri',
+               'size'       => '72',
+             )
+           );
+                    $cells->setAlignment('center');
+                    $cells->setValignment('center');
+                });
+                $sheet->setBorder('L8', 'thin');
+                //B Color
+                $sheet->mergeCells('L9:O11');
+                $sheet->cells('L9:O11', function ($cells) {
+                    $cells->setBackground("#444444");
+                });
+                $sheet->setBorder('L9', 'thin');
                 //lot no
                 $sheet->mergeCells('CE3:CR5');
                 $sheet->getCell('CE3')->setValue('Lot No:');
@@ -437,6 +494,20 @@ class ExcelController extends Controller
                 //lot no input
                 $sheet->mergeCells('CS3:EM5');
                 $sheet->setBorder('CS3', 'thin');
+                //L板
+                $sheet->mergeCells('CE6:EM6');
+                $sheet->getCell('CE6')->setValue('L板Bonding 需180度倒轉');
+                $sheet->setBorder('CE6', 'thin');
+                $sheet->cells('CE6:EM6', function ($cells) {
+                    $cells->setFont(
+             array(
+               'family'     => 'Calibri',
+               'size'       => '72',
+             )
+           );
+                    $cells->setAlignment('center');
+                    $cells->setValignment('center');
+                });
                 //name
                 $sheet->mergeCells('FA3:FO5');
                 $sheet->getCell('FA3')->setValue('Name:');
@@ -479,7 +550,7 @@ class ExcelController extends Controller
                     $cells->setFont(
              array(
                'family'     => 'Calibri',
-               'size'       => '72',
+               'size'       => '68',
              )
            );
                     $cells->setAlignment('center');
@@ -556,12 +627,8 @@ class ExcelController extends Controller
                     $cells->setValignment('center');
                 });
 
-                $sheet->getsheetView()->setzoomScale('22');
-                $sheet->getsheetView()->setzoomScaleNormal('22');
-
-
-
-                //$sheet->getColumnDimension(1)->setRowHeight(10);
+                $sheet->getsheetView()->setzoomScale('25');
+                $sheet->getsheetView()->setzoomScaleNormal('25');
             });
         })->export('xlsx');
     }
@@ -600,13 +667,13 @@ class ExcelController extends Controller
                 }
             }
         }
-        foreach($result3 as $v)
-        {
-          $content.=$v[0]."\t".$v[1]."\t".$v[2];
-          $content.="\n";
+        foreach ($result3 as $v) {
+            $content.=$v[0]."\t".$v[1]."\t".$v[2];
+            $content.="\n";
         }
         Storage::put($fname, $content);
-         return response()->download(storage_path('app/'.$fname),$fname.'.Lxy')->deleteFileAfterSend(true);;
+        return response()->download(storage_path('app/'.$fname), $fname.'.Lxy')->deleteFileAfterSend(true);
+        ;
     }
 
     public function median($numbers=array())
