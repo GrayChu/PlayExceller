@@ -669,7 +669,7 @@ class ExcelController extends Controller
         }
         foreach ($result3 as $v) {
             $content.=$v[0]."\t".$v[1]."\t".$v[2];
-            $content.="\n";
+            $content.="\r\n";
         }
         Storage::put($fname, $content);
         return response()->download(storage_path('app/'.$fname), $fname.'.Lxy')->deleteFileAfterSend(true);
