@@ -606,7 +606,7 @@ class ExcelController extends Controller
           $content.="\n";
         }
         Storage::put($fname, $content);
-         return response()->download(storage_path('app/'.$fname),$fname.'.Lxy');
+         return response()->download(storage_path('app/'.$fname),$fname.'.Lxy')->deleteFileAfterSend(true);;
     }
 
     public function median($numbers=array())
