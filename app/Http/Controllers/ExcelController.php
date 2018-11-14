@@ -651,24 +651,29 @@ class ExcelController extends Controller
             }
             if ($v['group']<=10) {//1.2.3.4.5.6.7.8.9.10
                 if ($v['group']%5==0) {//5.10
-                  $arr=[$v['color'],(-1)*$pixel*16*4+$v['lines']*(-1)*($pixel)+$pixel,(-1)*$pixel*27*(ceil($v['group']/5)-1)+$v['rows']*(-1)*($pixel)+$l];
+                  $arr=["color"=>$v['color'],"x"=>(-1)*$pixel*16*4+$v['lines']*(-1)*($pixel)+$pixel,
+                  "y"=>(-1)*$pixel*27*(ceil($v['group']/5)-1)+$v['rows']*(-1)*($pixel)+$l];
                     array_push($result3, $arr);
                 } else { //1.2.3.4.6.7.8.9
-                    $arr=[$v['color'],(-1)*($pixel)*16*($v['group']%5-1)+(-1)*($pixel)*$v['lines']+$pixel,(-1)*$pixel*27*(ceil($v['group']/5)-1)+$v['rows']*(-1)*($pixel)+$l];
+                    $arr=["color"=>$v['color'],"x"=>(-1)*($pixel)*16*($v['group']%5-1)+(-1)*($pixel)*$v['lines']+$pixel,
+                    "y"=>(-1)*$pixel*27*(ceil($v['group']/5)-1)+$v['rows']*(-1)*($pixel)+$l];
                     array_push($result3, $arr);
                 }
             } else { //11.12.13.14.15
                 if ($v['group']%5==0) {//15
-                  $arr=[$v['color'],(-1)*($pixel)*16*4+$v['lines']*(-1)*($pixel)+$pixel,(-1)*$pixel*54+$v['rows']*(-1)*($pixel)+$l];
+                  $arr=["color"=>$v['color'],"x"=>(-1)*($pixel)*16*4+$v['lines']*(-1)*($pixel)+$pixel,
+                  "y"=>(-1)*$pixel*54+$v['rows']*(-1)*($pixel)+$l];
                     array_push($result3, $arr);
                 } else { //11.12.13.14
-                    $arr=[$v['color'],(-1)*($pixel)*16*($v['group']%5-1)+(-1)*($pixel)*$v['lines']+$pixel,(-1)*$pixel*54+$v['rows']*(-1)*($pixel)+$l];
+                    $arr=["color"=>$v['color'],"x"=>(-1)*($pixel)*16*($v['group']%5-1)+(-1)*($pixel)*$v['lines']+$pixel,
+                    "y"=>(-1)*$pixel*54+$v['rows']*(-1)*($pixel)+$l];
                     array_push($result3, $arr);
                 }
             }
         }
+        usort($result3, $this->arrSortObjsByKey('y','ASC'));
         foreach ($result3 as $v) {
-            $content.=$v[0]."\t".$v[1]."\t".$v[2];
+            $content.=$v['color']."\t".$v['x']."\t".$v['y'];
             $content.="\r\n";
         }
         Storage::put($fname, $content);
@@ -696,5 +701,19 @@ class ExcelController extends Controller
         } else {
             return $letter;
         }
+    }
+    function arrSortObjsByKey($key, $order = 'DESC') {
+      	return function($a, $b) use ($key, $order) {
+      		// Swap order if necessary
+      		if ($order == 'DESC') {
+       	   		list($a, $b) = array($b, $a);
+       		}
+       		// Check data type
+       		if (is_numeric($a[$key])) {
+       			return $a[$key] - $b[$key]; // compare numeric
+       		} else {
+       			return strnatcasecmp($a[$key], $b[$key]); // compare string
+       		}
+      	};
     }
 }
