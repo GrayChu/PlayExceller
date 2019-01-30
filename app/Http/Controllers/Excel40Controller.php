@@ -184,6 +184,9 @@ class Excel40Controller extends Controller
         Session::put('ypixel', $ypixel);
         Session::put('fname', $filename);
         Session::put('title', $title);
+        unset($excel);
+        unset($odata);
+        unset($title);
         return $this->getDownloadPage();
     }
 
