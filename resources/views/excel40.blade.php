@@ -8,7 +8,7 @@
            <label class="control-label">Mini Exceller</label>
        </h2>
    </div>
-    <form method="post" enctype="multipart/form-data" action="{{url('upload')}}">
+    <form method="post" enctype="multipart/form-data" action="{{url('upload40')}}">
       {{ csrf_field() }}
       <div class="form-row">
         <div class="col-md-4 mb-3">
@@ -53,13 +53,17 @@
         </div>
       </div>
       <div class="form-row">
-        <div class="col-md-6 mb-3">
+        <div class="col-md-4 mb-3">
           <label>chip pitch:</label>
           <input type="text" name="chip" value="0.2">
         </div>
-        <div class="col-md-6 mb-3">
-          <label>pixel pitch:</label>
-          <input type="text" name="pixel" value="0.75">
+        <div class="col-md-4 mb-3">
+          <label>x pixel pitch:</label>
+          <input type="text" name="xpixel" value="0.75">
+        </div>
+        <div class="col-md-4 mb-3">
+          <label>y pixel pitch:</label>
+          <input type="text" name="ypixel" value="0.75">
         </div>
       </div>
       <div class="form-row">

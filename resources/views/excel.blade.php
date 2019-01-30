@@ -5,7 +5,7 @@
   <div class="container container-fruid">
     <div class="form-group page-header">
        <h2>
-           <label class="control-label">Exceller</label>
+           <label class="control-label">Mini Exceller</label>
        </h2>
    </div>
     <form method="post" enctype="multipart/form-data" action="{{url('upload')}}">

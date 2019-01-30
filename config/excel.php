@@ -84,7 +84,7 @@ return array(
         'pageSetup' => [
             'orientation'           => 'portrait',
             'paperSize'             => '9',
-            'scale'                 => '100',
+            'scale'                 => '20',
             'fitToPage'             => false,
             'fitToHeight'           => true,
             'fitToWidth'            => true,
@@ -299,7 +299,7 @@ return array(
             |--------------------------------------------------------------------------
             | Supported: DomPDF, tcPDF, mPDF
             */
-            'driver'  => 'DomPDF',
+            'driver'  => 'tcPDF',
 
             /*
             |--------------------------------------------------------------------------
@@ -428,7 +428,7 @@ return array(
         |
         */
 
-        'to_ascii'                => true,
+        'to_ascii'                => false,
 
         /*
         |--------------------------------------------------------------------------
