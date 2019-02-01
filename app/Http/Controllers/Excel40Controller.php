@@ -9,6 +9,7 @@ use Session;
 use Response;
 use Storage;
 
+ini_set('memory_limit', -1);
 class Excel40Controller extends Controller
 {
     public function getViewPage()
