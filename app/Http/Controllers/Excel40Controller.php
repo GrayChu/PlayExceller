@@ -185,10 +185,6 @@ class Excel40Controller extends Controller
         Session::put('ypixel', $ypixel);
         Session::put('fname', $filename);
         Session::put('title', $title);
-        unset($excel);
-        unset($odata);
-        unset($title);
-        return $this->getDownloadPage();
     }
 
     function arrSortObjsByKey($key, $order = 'DESC')
@@ -565,7 +561,7 @@ class Excel40Controller extends Controller
                         $cells->setFont(
                             array(
                                 'family' => 'Calibri',
-                                'size' => '72',
+                                'size' => '48',
                             )
                         );
                         $cells->setAlignment('center');

@@ -12,25 +12,39 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar  navbar-static-top navbar-default">
-            <div class="container">
-                <div class="navbar-header">
-                  <!-- Branding Image -->
-                  <a class="navbar-brand" href="{{ url('/') }}">
-                      {{ config('app.name', 'Playnitride') }}
-                  </a>
-                </div>
-            </div>
-        </nav>
-
-        @yield('content')
+<div style="background-color:rgba(0,0,0,0.5);height: 100%;width: 100%;position: absolute;z-index: 1;display: none"
+     id="loadimg"
+     class="text-center">
+    <div style="margin-top: 300px" class="row">
+        <div class="cp-spinner cp-meter"></div><div class="text-white"><font color="white">loading...</font></div>
     </div>
-    @section('script')
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    @show
+</div>
+<div id="app">
+    <nav class="navbar  navbar-static-top navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <!-- Branding Image -->
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    {{ config('app.name', 'Playnitride') }}
+                </a>
+            </div>
+        </div>
+    </nav>
+    @yield('content')
+</div>
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+</script>
+@yield('script')
 </body>
+
 </html>

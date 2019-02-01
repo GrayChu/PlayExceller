@@ -23,4 +23,5 @@
 @endsection
 
 @section('script')
+
 @endsection
