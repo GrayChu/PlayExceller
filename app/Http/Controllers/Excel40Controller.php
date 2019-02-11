@@ -10,6 +10,8 @@ use Response;
 use Storage;
 
 ini_set('memory_limit', -1);
+ini_set('max_input_time', -1);
+ini_set('max_execution_time', -1);
 class Excel40Controller extends Controller
 {
     public function getViewPage()
@@ -41,6 +43,7 @@ class Excel40Controller extends Controller
         $title = $excel->getTitle();
         $result1 = array();
         $result2 = array();
+        $result4 = array();
         $rmvarr = array();//red measure value
         $gmvarr = array();//green measure value
         $bmvarr = array();//blue measure value
@@ -178,6 +181,7 @@ class Excel40Controller extends Controller
                 array_push($result1, $array);
             }
         }
+
         Session::put('excel1', $result1);
         Session::put('excel2', $result2);
         Session::put('chip', $chip);
@@ -185,6 +189,7 @@ class Excel40Controller extends Controller
         Session::put('ypixel', $ypixel);
         Session::put('fname', $filename);
         Session::put('title', $title);
+
     }
 
     function arrSortObjsByKey($key, $order = 'DESC')
@@ -633,12 +638,12 @@ class Excel40Controller extends Controller
             }
 
             if ($v['group'] % 10 == 0) {//10.20.30.40
-                $arr = ["color" => $v['color'], "x" => (-1) * $xpixel * 16 * 9 + $v['lines'] * (-1) * ($xpixel) + $xpixel,
-                    "y" => (-1) * $ypixel * 30 * (ceil($v['group'] / 10) - 1) + $v['rows'] * (-1) * ($ypixel) + $l];
+                $arr = ["color" => $v['color'], "x" => round(-1 * $xpixel * 16 * 9 + $v['lines'] * (-1) * ($xpixel) + $xpixel,2),
+                    "y" => round((-1) * $ypixel * 30 * (ceil($v['group'] / 10) - 1) + $v['rows'] * (-1) * ($ypixel) + $l,2)];
                 array_push($result3, $arr);
             } else { //1.2.3.4.6.7.8.9
-                $arr = ["color" => $v['color'], "x" => (-1) * ($xpixel) * 16 * ($v['group'] % 10 - 1) + (-1) * ($xpixel) * $v['lines'] + $xpixel,
-                    "y" => (-1) * $ypixel * 30 * (ceil($v['group'] / 10) - 1) + $v['rows'] * (-1) * ($ypixel) + $l];
+                $arr = ["color" => $v['color'], "x" => round((-1) * ($xpixel) * 16 * ($v['group'] % 10 - 1) + (-1) * ($xpixel) * $v['lines'] + $xpixel,2),
+                    "y" => round((-1) * $ypixel * 30 * (ceil($v['group'] / 10) - 1) + $v['rows'] * (-1) * ($ypixel) + $l,2)];
                 array_push($result3, $arr);
             }
 
@@ -649,9 +654,117 @@ class Excel40Controller extends Controller
             $content .= "\r\n";
         }
         Storage::put($fname, $content);
-        return response()->download(storage_path('app/' . $fname), $fname . '.Lxy')->deleteFileAfterSend(true);;
+        return response()->download(storage_path('app/' . $fname), $fname . '.Lxy')->deleteFileAfterSend(true);
+    }
+    public function export4R(){
+        $result1 = Session::get('excel1');
+        $result4=array();
+        $content='';
+        $fname = Session::get('fname')."-R";
+
+        unset($result1[0]);
+        foreach ($result1 as $v) {
+            $array = array(
+                "rows"=>(ceil($v['group']/10)-1)*(30)+$v['rows'],
+                "lines"=>($v['group']-1)%10*(16)+$v['lines'],
+                "color"=>$v['color'],
+                "result"=>$v['result']
+            );
+            array_push($result4, $array);
+        }
+        foreach($result4 as $v)
+        {
+            for($i=160;$i>=1;$i--)
+            {
+                for($j=1;$j<=120;$j++) {
+                    if ($v['lines'] == $i && $v['rows'] == $j)
+                    {
+                        if($v['color']=='R')
+                        {
+                            $content .= ($v['result']=='PASS'?1:0).",";
+                        }
+                    }
+                }
+            }
+        }
+        Storage::put($fname, $content);
+        return response()->download(storage_path('app/' . $fname), $fname . '.mpd')->deleteFileAfterSend(true);
+
     }
 
+    public function export4G(){
+        $result1 = Session::get('excel1');
+        $result4=array();
+        $content='';
+        $fname = Session::get('fname')."-G";
+
+        unset($result1[0]);
+        foreach ($result1 as $v) {
+            $array = array(
+                "rows"=>(ceil($v['group']/10)-1)*(30)+$v['rows'],
+                "lines"=>($v['group']-1)%10*(16)+$v['lines'],
+                "color"=>$v['color'],
+                "result"=>$v['result']
+            );
+            array_push($result4, $array);
+        }
+
+        foreach($result4 as $v)
+        {
+            for($i=160;$i>=1;$i--)
+            {
+                for($j=1;$j<=120;$j++) {
+                    if ($v['lines'] == $i && $v['rows'] == $j)
+                    {
+                        if($v['color']=='G')
+                        {
+                            $content .= ($v['result']=='PASS'?1:0).",";
+                        }
+                    }
+                }
+            }
+        }
+        Storage::put($fname, $content);
+        return response()->download(storage_path('app/' . $fname), $fname . '.mpd')->deleteFileAfterSend(true);
+
+    }
+
+    public function export4B(){
+        $result1 = Session::get('excel1');
+        $result4=array();
+        $content='';
+        $fname = Session::get('fname')."-B";
+
+        unset($result1[0]);
+        foreach ($result1 as $v) {
+            $array = array(
+                "rows"=>(ceil($v['group']/10)-1)*(30)+$v['rows'],
+                "lines"=>($v['group']-1)%10*(16)+$v['lines'],
+                "color"=>$v['color'],
+                "result"=>$v['result']
+            );
+            array_push($result4, $array);
+        }
+
+        foreach($result4 as $v)
+        {
+            for($i=160;$i>=1;$i--)
+            {
+                for($j=1;$j<=120;$j++) {
+                    if ($v['lines'] == $i && $v['rows'] == $j)
+                    {
+                        if($v['color']=='B')
+                        {
+                            $content .= ($v['result']=='PASS'?1:0).",";
+                        }
+                    }
+                }
+            }
+        }
+        Storage::put($fname, $content);
+        return response()->download(storage_path('app/' . $fname), $fname . '.mpd')->deleteFileAfterSend(true);
+
+    }
     public function median($numbers = array())
     {
         if (!is_array($numbers)) {

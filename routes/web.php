@@ -30,6 +30,9 @@ Route::get('/downloadpage40','Excel40Controller@getDownloadPage');
 Route::get('/40/export1','Excel40Controller@export1');
 Route::get('/40/export2','Excel40Controller@export2');
 Route::get('/40/export3','Excel40Controller@export3');
+Route::get('/40/export4R','Excel40Controller@export4R');
+Route::get('/40/export4G','Excel40Controller@export4G');
+Route::get('/40/export4B','Excel40Controller@export4B');
 
 Route::get('/test',function(){
 
