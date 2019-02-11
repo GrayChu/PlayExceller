@@ -12,6 +12,7 @@ use Storage;
 ini_set('memory_limit', -1);
 ini_set('max_input_time', -1);
 ini_set('max_execution_time', -1);
+
 class Excel40Controller extends Controller
 {
     public function getViewPage()
@@ -305,7 +306,7 @@ class Excel40Controller extends Controller
                         if ($i % 30 == 0) {
                             $z++;
                         }
-                            $sheet->setHeight($j * 30 + $i + 1 + 1 + $z, 26);
+                        $sheet->setHeight($j * 30 + $i + 1 + 1 + $z, 26);
                     }
                 }
 
@@ -395,84 +396,84 @@ class Excel40Controller extends Controller
                 //printdate input
                 $sheet->mergeCells('SH21:SI40');
                 $sheet->setBorder('SH21', 'thin');
-                    //R
-                    $sheet->mergeCells('RZ3:SA7');
-                    $sheet->getCell('RZ3')->setValue('R');
-                    $sheet->cells('RZ3:SA7', function ($cells) {
-                        $cells->setFont(
-                            array(
-                                'family' => 'Calibri',
-                                'size' => '72',
-                            )
-                        );
-                        $cells->setAlignment('center');
-                        $cells->setValignment('center');
-                    });
-                    $sheet->setBorder('RZ3', 'thin');
-                    //R color
-                    $sheet->mergeCells('RZ8:SA19');
-                    $sheet->cells('RZ8:SA19', function ($cells) {
-                        $cells->setBackground("#FF0000");
-                    });
-                    $sheet->setBorder('RZ8', 'thin');
-                    //G
-                    $sheet->mergeCells('SB3:SC7');
-                    $sheet->getCell('SB3')->setValue('G');
-                    $sheet->cells('SB3:SC7', function ($cells) {
-                        $cells->setFont(
-                            array(
-                                'family' => 'Calibri',
-                                'size' => '72',
-                            )
-                        );
-                        $cells->setAlignment('center');
-                        $cells->setValignment('center');
-                    });
-                    $sheet->setBorder('SB3', 'thin');
-                    //G Color
-                    $sheet->mergeCells('SB8:SC19');
-                    $sheet->cells('SB8:SC19', function ($cells) {
-                        $cells->setBackground("#00FF11");
-                    });
-                    $sheet->setBorder('SB8', 'thin');
-                    //B
-                    $sheet->mergeCells('SD3:SE7');
-                    $sheet->getCell('SD3')->setValue('B');
-                    $sheet->cells('SD3', function ($cells) {
-                        $cells->setFont(
-                            array(
-                                'family' => 'Calibri',
-                                'size' => '72',
-                            )
-                        );
-                        $cells->setAlignment('center');
-                        $cells->setValignment('center');
-                    });
-                    $sheet->setBorder('SD3', 'thin');
-                    //B Color
-                    $sheet->mergeCells('SD8:SE19');
-                    $sheet->cells('SD8:SE19', function ($cells) {
-                        $cells->setBackground("#002BFF");
-                    });
-                    $sheet->setBorder('SD8', 'thin');
-                    //lot no
-                    $sheet->mergeCells('SH43:SI62');
-                    $sheet->getCell('SH43')->setValue('Lot No:');
-                    $sheet->setBorder('SH43', 'thin');
-                    $sheet->cells('SH43:SI62', function ($cells) {
-                        $cells->setFont(
-                            array(
-                                'family' => 'Calibri',
-                                'size' => '48',
-                            )
-                        );
-                        $cells->setAlignment('center');
-                        $cells->setValignment('center');
-                        $cells->setTextRotation(-90);
-                    });
-                    //lot no input
-                    $sheet->mergeCells('SH63:SI82');
-                    $sheet->setBorder('SH63', 'thin');
+                //R
+                $sheet->mergeCells('RZ3:SA7');
+                $sheet->getCell('RZ3')->setValue('R');
+                $sheet->cells('RZ3:SA7', function ($cells) {
+                    $cells->setFont(
+                        array(
+                            'family' => 'Calibri',
+                            'size' => '72',
+                        )
+                    );
+                    $cells->setAlignment('center');
+                    $cells->setValignment('center');
+                });
+                $sheet->setBorder('RZ3', 'thin');
+                //R color
+                $sheet->mergeCells('RZ8:SA19');
+                $sheet->cells('RZ8:SA19', function ($cells) {
+                    $cells->setBackground("#FF0000");
+                });
+                $sheet->setBorder('RZ8', 'thin');
+                //G
+                $sheet->mergeCells('SB3:SC7');
+                $sheet->getCell('SB3')->setValue('G');
+                $sheet->cells('SB3:SC7', function ($cells) {
+                    $cells->setFont(
+                        array(
+                            'family' => 'Calibri',
+                            'size' => '72',
+                        )
+                    );
+                    $cells->setAlignment('center');
+                    $cells->setValignment('center');
+                });
+                $sheet->setBorder('SB3', 'thin');
+                //G Color
+                $sheet->mergeCells('SB8:SC19');
+                $sheet->cells('SB8:SC19', function ($cells) {
+                    $cells->setBackground("#00FF11");
+                });
+                $sheet->setBorder('SB8', 'thin');
+                //B
+                $sheet->mergeCells('SD3:SE7');
+                $sheet->getCell('SD3')->setValue('B');
+                $sheet->cells('SD3', function ($cells) {
+                    $cells->setFont(
+                        array(
+                            'family' => 'Calibri',
+                            'size' => '72',
+                        )
+                    );
+                    $cells->setAlignment('center');
+                    $cells->setValignment('center');
+                });
+                $sheet->setBorder('SD3', 'thin');
+                //B Color
+                $sheet->mergeCells('SD8:SE19');
+                $sheet->cells('SD8:SE19', function ($cells) {
+                    $cells->setBackground("#002BFF");
+                });
+                $sheet->setBorder('SD8', 'thin');
+                //lot no
+                $sheet->mergeCells('SH43:SI62');
+                $sheet->getCell('SH43')->setValue('Lot No:');
+                $sheet->setBorder('SH43', 'thin');
+                $sheet->cells('SH43:SI62', function ($cells) {
+                    $cells->setFont(
+                        array(
+                            'family' => 'Calibri',
+                            'size' => '48',
+                        )
+                    );
+                    $cells->setAlignment('center');
+                    $cells->setValignment('center');
+                    $cells->setTextRotation(-90);
+                });
+                //lot no input
+                $sheet->mergeCells('SH63:SI82');
+                $sheet->setBorder('SH63', 'thin');
 //                    //L板
 //                    $sheet->mergeCells('CE6:EM6');
 //                    $sheet->getCell('CE6')->setValue('L板Bonding 需180度倒轉');
@@ -487,91 +488,91 @@ class Excel40Controller extends Controller
 //                        $cells->setAlignment('center');
 //                        $cells->setValignment('center');
 //                    });
-                    //name
-                    $sheet->mergeCells('SH85:SI104');
-                    $sheet->getCell('SH85')->setValue('Name:');
-                    $sheet->setBorder('SH85', 'thin');
-                    $sheet->cells('SH85:SI104', function ($cells) {
-                        $cells->setFont(
-                            array(
-                                'family' => 'Calibri',
-                                'size' => '48',
-                            )
-                        );
-                        $cells->setAlignment('center');
-                        $cells->setValignment('center');
-                        $cells->setTextRotation(-90);
-                    });
-                    //name input
-                    $sheet->mergeCells('SH105:SI124');
-                    $sheet->setBorder('SH105', 'thin');
-                    //date
-                    $sheet->mergeCells('SF85:SG104');
-                    $sheet->getCell('SF85')->setValue('Date:');
-                    $sheet->setBorder('SF85', 'thin');
-                    $sheet->cells('SF85:SG104', function ($cells) {
-                        $cells->setFont(
-                            array(
-                                'family' => 'Calibri',
-                                'size' => '48',
-                            )
-                        );
-                        $cells->setAlignment('center');
-                        $cells->setValignment('center');
-                        $cells->setTextRotation(-90);
-                    });
-                    //date input
-                    $sheet->mergeCells('SF105:SG124');
-                    $sheet->setBorder('SF105', 'thin');
-                    //defect record
-                    $sheet->mergeCells('RZ33:SE39');
-                    $sheet->getCell('RZ33')->setValue('Defect record');
-                    $sheet->setBorder('RZ33', 'thin');
-                    $sheet->cells('RZ33:SE39', function ($cells) {
-                        $cells->setFont(
-                            array(
-                                'family' => 'Calibri',
-                                'size' => '48',
-                            )
-                        );
-                        $cells->setAlignment('center');
-                        $cells->setValignment('center');
-                    });
-                    //R
-                    $sheet->mergeCells('RZ40:SA44');
-                    $sheet->getCell('RZ40')->setValue('R');
-                    $sheet->setBorder('RZ40', 'thin');
-                    //R input
-                    $sheet->mergeCells('RZ45:SA56');
-                    $sheet->getCell('RZ45')->setValue($rno);
-                    $sheet->setBorder('RZ45', 'thin');
-                    //G
-                    $sheet->mergeCells('SB40:SC44');
-                    $sheet->getCell('SB40')->setValue('G');
-                    $sheet->setBorder('SB40', 'thin');
-                    //G input
-                    $sheet->mergeCells('SB45:SC56');
-                    $sheet->getCell('SB45')->setValue($gno);
-                    $sheet->setBorder('SB45', 'thin');
-                    //B
-                    $sheet->mergeCells('SD40:SE44');
-                    $sheet->getCell('SD40')->setValue('B');
-                    $sheet->setBorder('SD40', 'thin');
-                    //B input
-                    $sheet->mergeCells('SD45:SE56');
-                    $sheet->getCell('SD45')->setValue($bno);
-                    $sheet->setBorder('SD45', 'thin');
+                //name
+                $sheet->mergeCells('SH85:SI104');
+                $sheet->getCell('SH85')->setValue('Name:');
+                $sheet->setBorder('SH85', 'thin');
+                $sheet->cells('SH85:SI104', function ($cells) {
+                    $cells->setFont(
+                        array(
+                            'family' => 'Calibri',
+                            'size' => '48',
+                        )
+                    );
+                    $cells->setAlignment('center');
+                    $cells->setValignment('center');
+                    $cells->setTextRotation(-90);
+                });
+                //name input
+                $sheet->mergeCells('SH105:SI124');
+                $sheet->setBorder('SH105', 'thin');
+                //date
+                $sheet->mergeCells('SF85:SG104');
+                $sheet->getCell('SF85')->setValue('Date:');
+                $sheet->setBorder('SF85', 'thin');
+                $sheet->cells('SF85:SG104', function ($cells) {
+                    $cells->setFont(
+                        array(
+                            'family' => 'Calibri',
+                            'size' => '48',
+                        )
+                    );
+                    $cells->setAlignment('center');
+                    $cells->setValignment('center');
+                    $cells->setTextRotation(-90);
+                });
+                //date input
+                $sheet->mergeCells('SF105:SG124');
+                $sheet->setBorder('SF105', 'thin');
+                //defect record
+                $sheet->mergeCells('RZ33:SE39');
+                $sheet->getCell('RZ33')->setValue('Defect record');
+                $sheet->setBorder('RZ33', 'thin');
+                $sheet->cells('RZ33:SE39', function ($cells) {
+                    $cells->setFont(
+                        array(
+                            'family' => 'Calibri',
+                            'size' => '48',
+                        )
+                    );
+                    $cells->setAlignment('center');
+                    $cells->setValignment('center');
+                });
+                //R
+                $sheet->mergeCells('RZ40:SA44');
+                $sheet->getCell('RZ40')->setValue('R');
+                $sheet->setBorder('RZ40', 'thin');
+                //R input
+                $sheet->mergeCells('RZ45:SA56');
+                $sheet->getCell('RZ45')->setValue($rno);
+                $sheet->setBorder('RZ45', 'thin');
+                //G
+                $sheet->mergeCells('SB40:SC44');
+                $sheet->getCell('SB40')->setValue('G');
+                $sheet->setBorder('SB40', 'thin');
+                //G input
+                $sheet->mergeCells('SB45:SC56');
+                $sheet->getCell('SB45')->setValue($gno);
+                $sheet->setBorder('SB45', 'thin');
+                //B
+                $sheet->mergeCells('SD40:SE44');
+                $sheet->getCell('SD40')->setValue('B');
+                $sheet->setBorder('SD40', 'thin');
+                //B input
+                $sheet->mergeCells('SD45:SE56');
+                $sheet->getCell('SD45')->setValue($bno);
+                $sheet->setBorder('SD45', 'thin');
 //
-                    $sheet->cells('RZ40:SD45', function ($cells) {
-                        $cells->setFont(
-                            array(
-                                'family' => 'Calibri',
-                                'size' => '48',
-                            )
-                        );
-                        $cells->setAlignment('center');
-                        $cells->setValignment('center');
-                    });
+                $sheet->cells('RZ40:SD45', function ($cells) {
+                    $cells->setFont(
+                        array(
+                            'family' => 'Calibri',
+                            'size' => '48',
+                        )
+                    );
+                    $cells->setAlignment('center');
+                    $cells->setValignment('center');
+                });
 //
 //                    $sheet->cells('A15:IL15', function ($cells) {
 //                        $cells->setFont(
@@ -638,12 +639,12 @@ class Excel40Controller extends Controller
             }
 
             if ($v['group'] % 10 == 0) {//10.20.30.40
-                $arr = ["color" => $v['color'], "x" => round(-1 * $xpixel * 16 * 9 + $v['lines'] * (-1) * ($xpixel) + $xpixel,2),
-                    "y" => round((-1) * $ypixel * 30 * (ceil($v['group'] / 10) - 1) + $v['rows'] * (-1) * ($ypixel) + $l,2)];
+                $arr = ["color" => $v['color'], "x" => round(-1 * $xpixel * 16 * 9 + $v['lines'] * (-1) * ($xpixel) + $xpixel, 2),
+                    "y" => round((-1) * $ypixel * 30 * (ceil($v['group'] / 10) - 1) + $v['rows'] * (-1) * ($ypixel) + $l, 2)];
                 array_push($result3, $arr);
             } else { //1.2.3.4.6.7.8.9
-                $arr = ["color" => $v['color'], "x" => round((-1) * ($xpixel) * 16 * ($v['group'] % 10 - 1) + (-1) * ($xpixel) * $v['lines'] + $xpixel,2),
-                    "y" => round((-1) * $ypixel * 30 * (ceil($v['group'] / 10) - 1) + $v['rows'] * (-1) * ($ypixel) + $l,2)];
+                $arr = ["color" => $v['color'], "x" => round((-1) * ($xpixel) * 16 * ($v['group'] % 10 - 1) + (-1) * ($xpixel) * $v['lines'] + $xpixel, 2),
+                    "y" => round((-1) * $ypixel * 30 * (ceil($v['group'] / 10) - 1) + $v['rows'] * (-1) * ($ypixel) + $l, 2)];
                 array_push($result3, $arr);
             }
 
@@ -656,32 +657,31 @@ class Excel40Controller extends Controller
         Storage::put($fname, $content);
         return response()->download(storage_path('app/' . $fname), $fname . '.Lxy')->deleteFileAfterSend(true);
     }
-    public function export4R(){
+
+    public function export4R()
+    {
         $result1 = Session::get('excel1');
-        $result4=array();
-        $content='';
-        $fname = Session::get('fname')."-R";
+        $result4 = array();
+        $content = '';
+        $fname = Session::get('fname') . "-R";
 
         unset($result1[0]);
         foreach ($result1 as $v) {
             $array = array(
-                "rows"=>(ceil($v['group']/10)-1)*(30)+$v['rows'],
-                "lines"=>($v['group']-1)%10*(16)+$v['lines'],
-                "color"=>$v['color'],
-                "result"=>$v['result']
+                "rows" => (ceil($v['group'] / 10) - 1) * (30) + $v['rows'],
+                "lines" => ($v['group'] - 1) % 10 * (16) + $v['lines'],
+                "color" => $v['color'],
+                "result" => $v['result']
             );
             array_push($result4, $array);
         }
-        foreach($result4 as $v)
-        {
-            for($i=160;$i>=1;$i--)
-            {
-                for($j=1;$j<=120;$j++) {
-                    if ($v['lines'] == $i && $v['rows'] == $j)
-                    {
-                        if($v['color']=='R')
-                        {
-                            $content .= ($v['result']=='PASS'?1:0).",";
+
+        for ($i = 160; $i >= 1; $i--) {
+            for ($j = 1; $j <= 120; $j++) {
+                foreach ($result4 as $v) {
+                    if ($v['lines'] == $i && $v['rows'] == $j) {
+                        if ($v['color'] == 'R') {
+                            $content .= ($v['result'] == 'PASS' ? 1 : 0) . ",";
                         }
                     }
                 }
@@ -692,33 +692,31 @@ class Excel40Controller extends Controller
 
     }
 
-    public function export4G(){
+    public function export4G()
+    {
         $result1 = Session::get('excel1');
-        $result4=array();
-        $content='';
-        $fname = Session::get('fname')."-G";
+        $result4 = array();
+        $content = '';
+        $fname = Session::get('fname') . "-G";
 
         unset($result1[0]);
         foreach ($result1 as $v) {
             $array = array(
-                "rows"=>(ceil($v['group']/10)-1)*(30)+$v['rows'],
-                "lines"=>($v['group']-1)%10*(16)+$v['lines'],
-                "color"=>$v['color'],
-                "result"=>$v['result']
+                "rows" => (ceil($v['group'] / 10) - 1) * (30) + $v['rows'],
+                "lines" => ($v['group'] - 1) % 10 * (16) + $v['lines'],
+                "color" => $v['color'],
+                "result" => $v['result']
             );
             array_push($result4, $array);
         }
 
-        foreach($result4 as $v)
-        {
-            for($i=160;$i>=1;$i--)
-            {
-                for($j=1;$j<=120;$j++) {
-                    if ($v['lines'] == $i && $v['rows'] == $j)
-                    {
-                        if($v['color']=='G')
-                        {
-                            $content .= ($v['result']=='PASS'?1:0).",";
+
+        for ($i = 160; $i >= 1; $i--) {
+            for ($j = 1; $j <= 120; $j++) {
+                foreach ($result4 as $v) {
+                    if ($v['lines'] == $i && $v['rows'] == $j) {
+                        if ($v['color'] == 'G') {
+                            $content .= ($v['result'] == 'PASS' ? 1 : 0) . ",";
                         }
                     }
                 }
@@ -729,42 +727,42 @@ class Excel40Controller extends Controller
 
     }
 
-    public function export4B(){
+    public function export4B()
+    {
         $result1 = Session::get('excel1');
-        $result4=array();
-        $content='';
-        $fname = Session::get('fname')."-B";
+        $result4 = array();
+        $content = '';
+        $fname = Session::get('fname') . "-B";
 
         unset($result1[0]);
         foreach ($result1 as $v) {
             $array = array(
-                "rows"=>(ceil($v['group']/10)-1)*(30)+$v['rows'],
-                "lines"=>($v['group']-1)%10*(16)+$v['lines'],
-                "color"=>$v['color'],
-                "result"=>$v['result']
+                "rows" => (ceil($v['group'] / 10) - 1) * (30) + $v['rows'],
+                "lines" => ($v['group'] - 1) % 10 * (16) + $v['lines'],
+                "color" => $v['color'],
+                "result" => $v['result']
             );
             array_push($result4, $array);
         }
 
-        foreach($result4 as $v)
-        {
-            for($i=160;$i>=1;$i--)
-            {
-                for($j=1;$j<=120;$j++) {
-                    if ($v['lines'] == $i && $v['rows'] == $j)
-                    {
-                        if($v['color']=='B')
-                        {
-                            $content .= ($v['result']=='PASS'?1:0).",";
+
+        for ($i = 160; $i >= 1; $i--) {
+            for ($j = 1; $j <= 120; $j++) {
+                foreach ($result4 as $v) {
+                    if ($v['lines'] == $i && $v['rows'] == $j) {
+                        if ($v['color'] == 'B') {
+                            $content .= ($v['result'] == 'PASS' ? 1 : 0) . ",";
                         }
                     }
                 }
             }
         }
+
         Storage::put($fname, $content);
         return response()->download(storage_path('app/' . $fname), $fname . '.mpd')->deleteFileAfterSend(true);
 
     }
+
     public function median($numbers = array())
     {
         if (!is_array($numbers)) {
