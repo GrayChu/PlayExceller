@@ -17,7 +17,7 @@
                     </div>
                     <div class="col-md-4 mb-3">
                         <label>上限:</label>
-                        <input type="text" name="rupper" value="12">
+                        <input type="text" name="rupper" value="30">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label>R標準值:</label>
