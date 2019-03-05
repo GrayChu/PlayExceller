@@ -21,7 +21,7 @@
                     </div>
                     <div class="col-md-4 mb-3">
                         <label>R標準值:</label>
-                        <input type="text" name="rstandard">
+                        <input type="text" name="rstandard" value="1.82">
                     </div>
                 </div>
                 <div class="form-row">
@@ -35,7 +35,7 @@
                     </div>
                     <div class="col-md-4 mb-3">
                         <label>G標準值:</label>
-                        <input type="text" name="gstandard">
+                        <input type="text" name="gstandard" value="2.32">
                     </div>
                 </div>
                 <div class="form-row">
@@ -49,7 +49,7 @@
                     </div>
                     <div class="col-md-4 mb-3">
                         <label>B標準值:</label>
-                        <input type="text" name="bstandard">
+                        <input type="text" name="bstandard" value="2.5">
                     </div>
                 </div>
                 <div class="form-row">
@@ -59,11 +59,11 @@
                     </div>
                     <div class="col-md-4 mb-3">
                         <label>x pixel pitch:</label>
-                        <input type="text" name="xpixel" value="0.7480">
+                        <input type="text" name="xpixel" value="0.75">
                     </div>
                     <div class="col-md-4 mb-3">
                         <label>y pixel pitch:</label>
-                        <input type="text" name="ypixel" value="0.75067">
+                        <input type="text" name="ypixel" value="0.75">
                     </div>
                 </div>
                 <div class="form-row">
