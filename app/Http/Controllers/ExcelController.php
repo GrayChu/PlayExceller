@@ -681,6 +681,8 @@ class ExcelController extends Controller
         return response()->download(storage_path('app/' . $fname), $fname . '.Lxy')->deleteFileAfterSend(true);;
     }
 
+
+
     public function export4R()
     {
         $result1 = Session::get('excel1');
@@ -691,16 +693,16 @@ class ExcelController extends Controller
         unset($result1[0]);
         foreach ($result1 as $v) {
             $array = array(
-                "rows" => (ceil($v['group'] / 10) - 1) * (30) + $v['rows'],
-                "lines" => ($v['group'] - 1) % 10 * (16) + $v['lines'],
+                "rows" => $v['group']<10?(ceil($v['group'] / 5) - 1) * (27) + $v['rows']:54+$v['rows'],
+                "lines" => ($v['group'] - 1) % 5 * (16) + $v['lines'],
                 "color" => $v['color'],
                 "result" => $v['result']
             );
             array_push($result4, $array);
         }
 
-        for ($i = 160; $i >= 1; $i--) {
-            for ($j = 1; $j <= 120; $j++) {
+        for ($i = 80; $i >= 1; $i--) {
+            for ($j = 1; $j <= 80; $j++) {
                 foreach ($result4 as $v) {
                     if ($v['lines'] == $i && $v['rows'] == $j) {
                         if ($v['color'] == 'R') {
@@ -725,8 +727,8 @@ class ExcelController extends Controller
         unset($result1[0]);
         foreach ($result1 as $v) {
             $array = array(
-                "rows" => (ceil($v['group'] / 10) - 1) * (30) + $v['rows'],
-                "lines" => ($v['group'] - 1) % 10 * (16) + $v['lines'],
+                "rows" => $v['group']<10?(ceil($v['group'] / 5) - 1) * (27) + $v['rows']:54+$v['rows'],
+                "lines" => ($v['group'] - 1) % 5 * (16) + $v['lines'],
                 "color" => $v['color'],
                 "result" => $v['result']
             );
@@ -734,8 +736,8 @@ class ExcelController extends Controller
         }
 
 
-        for ($i = 160; $i >= 1; $i--) {
-            for ($j = 1; $j <= 120; $j++) {
+        for ($i = 80; $i >= 1; $i--) {
+            for ($j = 1; $j <= 80; $j++) {
                 foreach ($result4 as $v) {
                     if ($v['lines'] == $i && $v['rows'] == $j) {
                         if ($v['color'] == 'G') {
@@ -760,8 +762,8 @@ class ExcelController extends Controller
         unset($result1[0]);
         foreach ($result1 as $v) {
             $array = array(
-                "rows" => (ceil($v['group'] / 10) - 1) * (30) + $v['rows'],
-                "lines" => ($v['group'] - 1) % 10 * (16) + $v['lines'],
+                "rows" => $v['group']<10?(ceil($v['group'] / 5) - 1) * (27) + $v['rows']:54+$v['rows'],
+                "lines" => ($v['group'] - 1) % 5 * (16) + $v['lines'],
                 "color" => $v['color'],
                 "result" => $v['result']
             );
@@ -769,8 +771,8 @@ class ExcelController extends Controller
         }
 
 
-        for ($i = 160; $i >= 1; $i--) {
-            for ($j = 1; $j <= 120; $j++) {
+        for ($i = 80; $i >= 1; $i--) {
+            for ($j = 1; $j <= 80; $j++) {
                 foreach ($result4 as $v) {
                     if ($v['lines'] == $i && $v['rows'] == $j) {
                         if ($v['color'] == 'B') {
