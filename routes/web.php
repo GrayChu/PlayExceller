@@ -24,6 +24,9 @@ Route::get('/downloadpage','ExcelController@getDownloadPage');
 Route::get('export1','ExcelController@export1');
 Route::get('export2','ExcelController@export2');
 Route::get('export3','ExcelController@export3');
+Route::get('/export4R','ExcelController@export4R');
+Route::get('/export4G','ExcelController@export4G');
+Route::get('/export4B','ExcelController@export4B');
 
 
 Route::get('/downloadpage40','Excel40Controller@getDownloadPage');
