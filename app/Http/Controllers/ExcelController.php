@@ -701,10 +701,10 @@ class ExcelController extends Controller
             array_push($result4, $array);
         }
 
-        for ($i = 80; $i >= 1; $i--) {
+        for ($i = 1; $i <= 80; $i--) {
             for ($j = 1; $j <= 80; $j++) {
                 foreach ($result4 as $v) {
-                    if ($v['lines'] == $i && $v['rows'] == $j) {
+                    if ($v['rows'] == $i && $v['lines'] == $j) {
                         if ($v['color'] == 'R') {
                             $content .= ($v['result'] == 'PASS' ? 1 : 0) . ",";
                         }
@@ -736,11 +736,11 @@ class ExcelController extends Controller
         }
 
 
-        for ($i = 80; $i >= 1; $i--) {
+        for ($i = 1; $i <= 80; $i--) {
             for ($j = 1; $j <= 80; $j++) {
                 foreach ($result4 as $v) {
-                    if ($v['lines'] == $i && $v['rows'] == $j) {
-                        if ($v['color'] == 'G') {
+                    if ($v['rows'] == $i && $v['lines'] == $j) {
+                        if ($v['color'] == 'R') {
                             $content .= ($v['result'] == 'PASS' ? 1 : 0) . ",";
                         }
                     }
@@ -771,11 +771,11 @@ class ExcelController extends Controller
         }
 
 
-        for ($i = 80; $i >= 1; $i--) {
+        for ($i = 1; $i <= 80; $i--) {
             for ($j = 1; $j <= 80; $j++) {
                 foreach ($result4 as $v) {
-                    if ($v['lines'] == $i && $v['rows'] == $j) {
-                        if ($v['color'] == 'B') {
+                    if ($v['rows'] == $i && $v['lines'] == $j) {
+                        if ($v['color'] == 'R') {
                             $content .= ($v['result'] == 'PASS' ? 1 : 0) . ",";
                         }
                     }
