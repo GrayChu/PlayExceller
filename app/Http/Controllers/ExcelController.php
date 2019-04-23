@@ -8,6 +8,10 @@ use Session;
 use Response;
 use Storage;
 
+ini_set('memory_limit', -1);
+ini_set('max_input_time', -1);
+ini_set('max_execution_time', -1);
+
 class ExcelController extends Controller
 {
     public function getViewPage()
