@@ -697,7 +697,7 @@ class ExcelController extends Controller
         unset($result1[0]);
         foreach ($result1 as $v) {
             $array = array(
-                "rows" => $v['group']<10?(ceil($v['group'] / 5) - 1) * (27) + $v['rows']:54+$v['rows'],
+                "rows" => $v['group']<=10?(ceil($v['group'] / 5) - 1) * (27) + $v['rows']:54+$v['rows'],
                 "lines" => ($v['group'] - 1) % 5 * (16) + $v['lines'],
                 "color" => $v['color'],
                 "result" => $v['result']
@@ -705,7 +705,7 @@ class ExcelController extends Controller
             array_push($result4, $array);
         }
 
-        for ($i = 1; $i <= 80; $i--) {
+        for ($i = 1; $i <= 80; $i++) {
             for ($j = 1; $j <= 80; $j++) {
                 foreach ($result4 as $v) {
                     if ($v['rows'] == $i && $v['lines'] == $j) {
@@ -731,7 +731,7 @@ class ExcelController extends Controller
         unset($result1[0]);
         foreach ($result1 as $v) {
             $array = array(
-                "rows" => $v['group']<10?(ceil($v['group'] / 5) - 1) * (27) + $v['rows']:54+$v['rows'],
+                "rows" => $v['group']<=10?(ceil($v['group'] / 5) - 1) * (27) + $v['rows']:54+$v['rows'],
                 "lines" => ($v['group'] - 1) % 5 * (16) + $v['lines'],
                 "color" => $v['color'],
                 "result" => $v['result']
@@ -740,11 +740,11 @@ class ExcelController extends Controller
         }
 
 
-        for ($i = 1; $i <= 80; $i--) {
+        for ($i = 1; $i <= 80; $i++) {
             for ($j = 1; $j <= 80; $j++) {
                 foreach ($result4 as $v) {
                     if ($v['rows'] == $i && $v['lines'] == $j) {
-                        if ($v['color'] == 'R') {
+                        if ($v['color'] == 'G') {
                             $content .= ($v['result'] == 'PASS' ? 1 : 0) . ",";
                         }
                     }
@@ -766,7 +766,7 @@ class ExcelController extends Controller
         unset($result1[0]);
         foreach ($result1 as $v) {
             $array = array(
-                "rows" => $v['group']<10?(ceil($v['group'] / 5) - 1) * (27) + $v['rows']:54+$v['rows'],
+                "rows" => $v['group']<=10?(ceil($v['group'] / 5) - 1) * (27) + $v['rows']:54+$v['rows'],
                 "lines" => ($v['group'] - 1) % 5 * (16) + $v['lines'],
                 "color" => $v['color'],
                 "result" => $v['result']
@@ -775,11 +775,11 @@ class ExcelController extends Controller
         }
 
 
-        for ($i = 1; $i <= 80; $i--) {
+        for ($i = 1; $i <= 80; $i++) {
             for ($j = 1; $j <= 80; $j++) {
                 foreach ($result4 as $v) {
                     if ($v['rows'] == $i && $v['lines'] == $j) {
-                        if ($v['color'] == 'R') {
+                        if ($v['color'] == 'B') {
                             $content .= ($v['result'] == 'PASS' ? 1 : 0) . ",";
                         }
                     }
